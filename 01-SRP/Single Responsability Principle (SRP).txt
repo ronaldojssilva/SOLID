@@ -1,0 +1,74 @@
+Single Rsponsability Principle (SRP) -> unica razão para mudança
+	Uma classe deve ter apenas uma responsabilidade bem definida, com um único motivo para mudar. 
+	Cada classe deve se especializar em fazer uma tarefa específica com excelência, criando código modular e coeso.
+	Múltiplas responsabilidades em uma classe aumentam complexidade e riscos de manutenção.
+
+Problemas de compreensão do SRP:
+	1 Interpretação literal
+		Erro comum de pensar que "uma coisa" siginifica uma única linha de código ou função muito específica.
+	2 Escopo restrito
+		Mal-entendido de que SRP significa limitar drasticamente a funcionalidade de uma classe.
+		A idéia é o contrário, que é conseguir ampliar ao máximo a responsabilidade daquela classe mas baseada no que
+		ela vei para fazer ou seja para quem ela veio servir.
+	3 Abstração inadequada
+		Dificuldade em identificar o nível correto de responsabilidade e coesão.
+		Como conseguir entender se ela ta quebrando a responbilidade?
+
+O que é um unico motivo para mudança?
+	
+SRP: Definições
+	Atores	
+		Um ator pode ser uma pessoa, um grupo ou um sistema que requisita mudanças no software.
+		Diferentes atores como usuários finais, gestores de produto, equipes de negócios e desenvolvedores podem ter
+		necessidades distintas.
+		Atores podem ser pessoas humanas ou não.
+	Razões para mudança
+		Uma razação para mudar representa os diferentes stakeholders ou atores que podem exigir modificações que acabam 
+		refletindo na mudança em uma mesma classe.
+	Impacto da multiplicidade de atores
+		Mudanças para atender um ator podem impactar outras funcionalidades, gerando fragilidade no código.
+
+	Resumindo: 
+		- Uma classe deve atender a um único ator. 
+		- SRP é sobre ter uma única razão para mudança, não uma única linha de código.
+		- Uma classe deve ser coesa e especializada em uma tarefa, mas pode ter múltiplas responsabilidades se elas
+		  estiverem relacionadas a um único ator ou necessidade.
+		- A chave é entender o contexto e as necessidades dos atores envolvidos.
+		- uma classe que por exemplo salvar dados no banco e gerar relatórios pode esta atendendo a dois atores
+		  diferentes, o que pode gerar problemas de manutenção e entendimento do código. o ator que quer ver o relatório pode
+		  ser diferente do ator que quer salvar os dados, o que pode gerar problemas de entendimento do código.
+		- As áreas da empresa, as áreas do software, as áreas do sistema, as áreas do domínio, as áreas do negócio
+		  devem ser vistas como atores diferentes, e cada um deles deve ter sua própria classe.
+
+SRP: Atores e Stakeholders
+	Atores como stakeholders
+		class Employee{
+			DefineSalario(){...}
+			FazerPagamento(){...}
+			GerarRelatorioAuditoria(){...}
+		}
+
+		Atores como departamentos ou stakeholders envolvidos na classe:
+			* Financeiro: Realizar pagamento.
+			* Recursos Humanos (RH): Definir salário.
+			* Compliance: Gerar relatório de auditoria.
+
+		Essa classe esta servindo a atores diferentes. Se por exepmplo o RH precisar mudar a forma de definir o salário, 
+		vai ter que mudar a classe Employee, o que pode impactar outras funcionalidades que não deveriam ser afetadas.
+
+	Atores como componentes
+		class Employee{
+			SalvarNoDB(){...}
+			enviarEmailDeConfirmacao(){...}
+			RegistrarLogAlteracoes(){...}
+		}		
+
+		Atores envolvidos na classe:
+			* Persistência de dados (Banco de Dados): Salvar informações do funcionário.
+			* Notificação por email (Sistema de Email): Enviar confirmação de cadastro.
+			* Sistema de Log: Registrar alterações feitas.
+
+	A sacada de saber se voce esta quebrando o principio da responsabilidade única é pensar no ator primeiro 
+	e não necessariamente no método que a classe vai ter dentro dela
+	Se a classe esta atendendo a mais de um ator, ela provavelmente esta quebrando o SRP.
+	Se a classe tem métodos que atendem a diferentes atores, ela provavelmente esta quebrando o SRP.
