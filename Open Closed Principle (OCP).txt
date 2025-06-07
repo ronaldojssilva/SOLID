@@ -1,0 +1,5 @@
+Open Closed Principle (OCP) - Abeto para extensão, fechado para modificação
+	Se quando você precisa adicionar uma nova funcionalidade, você tem que modificar uma classe existente, soa mal
+	Toda vez que criar algo, voce tem que criar de uma forma que ele seja extensiel
+	Uma classe que tem um monte de if/else, switch/case, é uma classe que não esta aberta para extensão. Cheiro grande de violação
+	desse princípio.
