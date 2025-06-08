@@ -1,0 +1,17 @@
+Definição
+	Princípio que estabelece que objetos de uma classe base (Pai) devem poder ser substituídos por objetos de uma classe derivada (Filha) 
+	sem alterar o comportamento do programa.
+	O conceito é garantir que as subclasses tennham o mesmo comportamento da classe pai.
+
+Conceito Fundamental
+	Garante que subclasses matenham o comportamento esperado da classe pai, preservando invariantes e respeitando os contratos
+	de métodos.
+
+Importância
+	Promove design de sotware mais robusto, facilitando extensibilidade e mantendo a consistência comportamental entre classes
+	relacionadas.
+
+
+A idéia é evitar de limitar o que o método da classe pai pode fazer, ou seja, não podemos restringir o que a classe filha pode fazer.
+Por exemplo, se a classe pai tem um método que retorna um valor, a classe filha não pode retornar um valor diferente ou lançar uma exceção
+que a classe pai não lança.
