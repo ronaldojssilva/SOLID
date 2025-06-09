@@ -1,0 +1,32 @@
+Dependency Inversion Principle (DIP)
+	O DIP determina que as classes de alto nível não devem depender de classes de baixo nível.
+	Em vez disso, ambas devem depender de abstrações.
+	Isso permite que o código seja mais flexível e fácil de manter.
+
+	Alto Nível vs Baixo Nível
+		Antes de entender a inversão de dependência, é importante entender a diferença entre módulos de alto nível e baixo nível.
+
+		Módulos de alto nível: Contém regras de negócio mais abstratas, que orquestram funcionalidades do sistema.
+		Módulos de baixo nível: Contém regras de negócio mais concretas, que implementam funcionalidades específicas do sistema. 
+		                        como , por exemplo, acesso a banco de dados, serviços externos, etc.
+
+
+DIP vs Dependecy Injection
+	Embora DIP e DI sejam frequentemente confundidos, eles não são a mesma coisa.
+	DIP é um princípio de design que sugere que módulos de alto nível não devem depender de módulos de baixo nível, mas sim de abstrações.
+	DI é uma técnica para implementar DIP, onde as dependências são injetadas em um módulo em vez de serem criadas dentro dele.
+
+	Dependency Inversion Principle (DIP)
+		* Foca na estrutura de dependências.
+		* Define como classes devem depender de abstrações.
+		* Objtivo: reduzir acoplamento entre componentes
+
+	Dependency Injection (DI)
+		* Foca na implementação de dependências.
+		* Fornece mecanismos para injetar dependências em classes.
+		* Objetivo: facilitar a modularidade e testabilidade.
+
+
+	Conclusão:
+		DIP é um principio arquitetural, enquanto DI é um padrão de implementação. DI é uma técnica que ajuda a realizar os objetivos do DIP,
+		criando software mais flexivel e desacoplado.
