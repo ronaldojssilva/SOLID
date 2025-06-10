@@ -72,3 +72,29 @@ SRP: Atores e Stakeholders
 	e não necessariamente no método que a classe vai ter dentro dela
 	Se a classe esta atendendo a mais de um ator, ela provavelmente esta quebrando o SRP.
 	Se a classe tem métodos que atendem a diferentes atores, ela provavelmente esta quebrando o SRP.
+
+
+	Existem alguns benefícios em seguir o SRP como:
+		Menor acoplamento 
+			Classes com menos responsabilidades tendem a ter menos dependÊncias.
+		Testabilidade
+			Classes com menos responsabilidades terão menos casos de teste para escrever, e maior simpliciddade para fazê-lo.
+		Manutenibilidade e legibilidade
+			Classes menores e mais organizadas são melhores de se manter e ler.
+
+	Sugestão de passos para refatorar classe que quebram o SRP:
+		Extratir método
+		Extratir classe
+		Extratir interface
+		Utilizar a dependênicia para inversão
+
+		ex: imagina uma classe com um método que adiciona um usuário.
+		no método adiciona o usuário, ele:
+			realiza a persistÊncia do objeto, usando EF core, Dapper, etc.., .
+			realiza a sicronia com o ERP através de uma API, chamando diretamento o HttpClient.
+			Public a mensagem no RabbitMQ para notificar outros sistemas.
+		pode-se fazer passo a passo:
+			1. Extrair o método de persistência do usuário para uma classe separada, que implementa uma interface de persistência.
+			2. Extrair o método de sincronização com o ERP para outra classe, que implementa uma interface de sincronização.
+			3. Extrair o método de publicação no RabbitMQ para outra classe, que implementa uma interface de publicação.
+			4. Injetar essas dependências na classe original através do construtor ou injeção de dependência.
